@@ -1,0 +1,15 @@
+biomes:
+  PLAINS: "&aEntering the sunny plains!"
+  DESERT: "&eEntering the hot desert!"
+  FOREST: "&2Entering the lush forest!"
+  NETHER_WASTES: "&cEntering the fiery Nether Wastes!"
+  SOUL_SAND_VALLEY: "&7Entering the eerie Soul Sand Valley!"
+  CRIMSON_FOREST: "&4Entering the Crimson Forest!"
+  WARPED_FOREST: "&9Entering the Warped Forest!"
+  BASALT_DELTAS: "&8Entering the Basalt Deltas!"
+  THE_END: "&5Entering The End!"
+  END_HIGHLANDS: "&dEntering the End Highlands!"
+  END_MIDLANDS: "&dEntering the End Midlands!"
+  SMALL_END_ISLANDS: "&dEntering the Small End Islands!"
+  END_BARRENS: "&dEntering the End Barrens!"
+  # Add more biomes as you want

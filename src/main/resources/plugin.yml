@@ -1,0 +1,6 @@
+name: BiomesTitle
+version: '${project.version}'
+main: me.supramental.biomestitle.BiomesTitle
+api-version: '1.20'
+description: Add titles to biome
+author: supramental

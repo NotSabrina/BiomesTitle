@@ -1,0 +1,4 @@
+name: BiomesTitle
+version: '${project.version}'
+main: me.supramental.biomestitle.BiomesTitle
+api-version: '1.20'
