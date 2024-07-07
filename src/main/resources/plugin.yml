@@ -1,6 +1,9 @@
 name: BiomesTitle
-version: '${project.version}'
+version: 1.1
 main: me.supramental.biomestitle.BiomesTitle
 api-version: '1.20'
 description: Add titles to biome
 author: supramental
+softdepend:
+  - Terra
+  - PlaceholderAPI

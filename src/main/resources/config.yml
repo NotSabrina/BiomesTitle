@@ -1,15 +1,53 @@
+disabled-worlds:
+  - example_world
+  - another_world
+
 biomes:
-  PLAINS: "&aEntering the sunny plains!"
-  DESERT: "&eEntering the hot desert!"
-  FOREST: "&2Entering the lush forest!"
-  NETHER_WASTES: "&cEntering the fiery Nether Wastes!"
-  SOUL_SAND_VALLEY: "&7Entering the eerie Soul Sand Valley!"
-  CRIMSON_FOREST: "&4Entering the Crimson Forest!"
-  WARPED_FOREST: "&9Entering the Warped Forest!"
-  BASALT_DELTAS: "&8Entering the Basalt Deltas!"
-  THE_END: "&5Entering The End!"
-  END_HIGHLANDS: "&dEntering the End Highlands!"
-  END_MIDLANDS: "&dEntering the End Midlands!"
-  SMALL_END_ISLANDS: "&dEntering the Small End Islands!"
-  END_BARRENS: "&dEntering the End Barrens!"
-  # Add more biomes as you want
+  # if u use PlaceholderAPI Plugin you can display a image,custom font Ex:
+  #PLAINS:
+  #  message: "&aEntering the sunny plains! %image_placeholder%" <- PlaceholderAPI image
+  #  display: "title"
+
+  # display option
+  # - title (the message will appear as title)
+  # - actionbar (the message will appear as action bar)
+  # Vanilla Biomes
+  PLAINS:
+    message: "&aEntering the sunny plains!"
+    display: "title"
+  DESERT:
+    message: "&eEntering the hot desert!"
+    display: "title"
+  FOREST:
+    message: "&2Entering the lush forest!"
+    display: "title"
+  NETHER_WASTES:
+    message: "&cEntering the fiery Nether Wastes!"
+    display: "title"
+  SOUL_SAND_VALLEY:
+    message: "&7Entering the eerie Soul Sand Valley!"
+    display: "title"
+  CRIMSON_FOREST:
+    message: "&4Entering the Crimson Forest!"
+    display: "title"
+  WARPED_FOREST:
+    message: "&9Entering the Warped Forest!"
+    display: "title"
+  BASALT_DELTAS:
+    message: "&8Entering the Basalt Deltas!"
+    display: "title"
+  THE_END:
+    message: "&5Entering The End!"
+    display: "title"
+  END_HIGHLANDS:
+    message: "&dEntering the End Highlands!"
+    display: "title"
+  END_MIDLANDS:
+    message: "&dEntering the End Midlands!"
+    display: "title"
+  SMALL_END_ISLANDS:
+    message: "&dEntering the Small End Islands!"
+    display: "title"
+  END_BARRENS:
+    message: "&dEntering the End Barrens!"
+    display: "title"
