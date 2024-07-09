@@ -4,7 +4,7 @@
   <groupId>me.supramental</groupId>
   <artifactId>BiomesTitle</artifactId>
   <name>BiomesTitle</name>
-  <version>1.1-A</version>
+  <version>1.2</version>
   <build>
     <resources>
       <resource>
