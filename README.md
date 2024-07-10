@@ -2,5 +2,5 @@
 Download plugin : <br>
 Spigotmc : https://www.spigotmc.org/resources/biomestitle.117560/ <br>
 Modrinth : Under reviewed <br>
-How to use Area wand : https://github.com/NotSabrina/BiomesTitle/wiki <br>
+How to use Area wand : https://github.com/NotSabrina/BiomesTitle/wiki/Area-Wand <br>
 ![BSTATS](https://bstats.org/signatures/bukkit/BiomesTitle.svg)
