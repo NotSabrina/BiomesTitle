@@ -38,6 +38,7 @@ public class WandListener implements Listener {
 
             if (pos1.containsKey(player) && pos2.containsKey(player)) {
                 player.sendMessage(ChatColor.YELLOW + "Use /biometitlesetarea <name> <message> <title or actionbar> to set the area.");
+                player.sendMessage(ChatColor.YELLOW + "To custom the commands,particles,and sound go to Area.yml.");
             }
         }
     }

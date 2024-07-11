@@ -10,10 +10,10 @@ softdepend:
 commands:
   biometitlewand:
     description: Gives the player a BiomeTitle wand.
-    usage: /biometitlewand
+    usage: /btwand
   biometitlesetarea:
     description: Sets a custom area with a message.
-    usage: /biometitlesetarea <name> <message> <title or actionbar>
+    usage: /btsetarea <name> <message> <title or actionbar>
 
 permissions:
   biomestitle.command.wand:

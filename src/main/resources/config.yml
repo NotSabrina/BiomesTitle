@@ -1,3 +1,7 @@
+# BiomesTitle Plugin
+# Having an issue or suggestion? go to my github and create new issue nd label the issue
+# with bug/request ,if i label it as Trying it means im working for it
+# https://github.com/NotSabrina/BiomesTitle
 disabled-worlds:
   - example_world
   - another_world
@@ -11,43 +15,286 @@ biomes:
   # display option
   # - title (the message will appear as title)
   # - actionbar (the message will appear as action bar)
-  # Vanilla Biomes
-  PLAINS:
-    message: "&aEntering the sunny plains!"
-    display: "title"
+
+  # EXAMPLE_BIOME:
+  #  message: "&aEntering the sunny plains!"
+  #  display: "title"
+  #  sound: "minecraft:entity.player.levelup" <-- Minecraft sound effect
+  #  All minecraft sound effect : https://www.digminecraft.com/lists/sound_list_pc.php
+  # Use sudo if you want the player to execute command
+  # you cane use %player% without PlaceholderAPI
+  #  commands:
+  #    - "give %player% minecraft:diamond 1"
+  #    - "say %player% has entered the plains."
+  # particles:
+  #  type: "FLAME" <-- Particles spawn once a player step into the biome
+  # all minecraft particles : https://minecraft.wiki/w/Particles_%28Java_Edition%29
+  # count: 10 <-- How many particles appear(you can adjust this if you get lag issue)
+  #  offsetX: 0.5 <-- X cordinate
+  #  offsetY: 0.5 <-- Y cordinate
+  #  offsetZ: 0.5 <-- Z cordinate
+  #  speed: 0.1 <-- The speed of particles
+  # trail_particles:
+  #  type: "VILLAGER_HAPPY" <-- Particles spawn as a trails that will follow player when in biome/area
+  #  count: 5
+  #  offsetX: 0.3
+  # offsetY: 0.1
+  #  offsetZ: 0.3
+
+# Vanilla Biomes
+world:
   DESERT:
     message: "&eEntering the hot desert!"
     display: "title"
+    sound:
+      - ""
+    commands:
+    - ""
+    - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.5
+      offsetY: 0.3
+      offsetZ: 0.1
+      
   FOREST:
     message: "&2Entering the lush forest!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
+
+world_nether:
   NETHER_WASTES:
     message: "&cEntering the fiery Nether Wastes!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
+      
   SOUL_SAND_VALLEY:
     message: "&7Entering the eerie Soul Sand Valley!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
+      
   CRIMSON_FOREST:
     message: "&4Entering the Crimson Forest!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
+      
   WARPED_FOREST:
     message: "&9Entering the Warped Forest!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
+      
   BASALT_DELTAS:
     message: "&8Entering the Basalt Deltas!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
+      
+world_the_end:
   THE_END:
     message: "&5Entering The End!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
   END_HIGHLANDS:
     message: "&dEntering the End Highlands!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
   END_MIDLANDS:
     message: "&dEntering the End Midlands!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
   SMALL_END_ISLANDS:
     message: "&dEntering the Small End Islands!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3
   END_BARRENS:
     message: "&dEntering the End Barrens!"
     display: "title"
+    sound:
+      - ""
+    commands:
+      - ""
+      - ""
+    particles:
+      type: ""
+      count: 10
+      offsetX: 0.5
+      offsetY: 0.5
+      offsetZ: 0.5
+      speed: 0.1
+    trail_particles:
+      type: ""
+      count: 5
+      offsetX: 0.3
+      offsetY: 0.1
+      offsetZ: 0.3

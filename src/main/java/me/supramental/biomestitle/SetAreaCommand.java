@@ -43,7 +43,7 @@ public class SetAreaCommand implements CommandExecutor {
         Location pos2 = wandListener.getPos2().get(player);
 
         if (pos1 == null || pos2 == null) {
-            player.sendMessage("You must select both positions with the wand first.");
+            player.sendMessage("You must set both positions using the wand.");
             return true;
         }
 
@@ -65,17 +65,28 @@ public class SetAreaCommand implements CommandExecutor {
         areaConfig.set(areaName + ".message", message);
         areaConfig.set(areaName + ".displayType", displayType);
 
+        if (args.length > 3) {
+            String sounds = args[3];
+            areaConfig.set(areaName + ".sounds", sounds.split(","));
+        }
+
+        if (args.length > 4) {
+            String commands = args[4];
+            areaConfig.set(areaName + ".commands", commands.split(","));
+        }
+
+        if (args.length > 5) {
+            String particles = args[5];
+            areaConfig.set(areaName + ".particles.type", particles);
+        }
+
         try {
             areaConfig.save(file);
-            player.sendMessage("Area " + areaName, "has been saved.");
         } catch (IOException e) {
-            player.sendMessage("An error occurred while saving the area.");
             e.printStackTrace();
         }
 
-        wandListener.getPos1().remove(player);
-        wandListener.getPos2().remove(player);
-
+        player.sendMessage("Area " + areaName + " has been set.");
         return true;
     }
 }

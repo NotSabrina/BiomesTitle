@@ -18,6 +18,16 @@ ExampleArea1:
     z: 200
   message: "&aEntering Example Area 1!"
   displayType: "title"
+  sound :
+    - ""
+  commands:
+    - ""
+  particles:
+    type: "FLAME"
+    count: 10
+    offsetX: 0.5
+    offsetY: 0.5
+    offsetZ: 0.5
 
 ExampleArea2:
   pos1:
@@ -32,3 +42,14 @@ ExampleArea2:
     z: 50
   message: "&bEntering Example Area 2!"
   displayType: "actionbar"
+  sound :
+    - ""
+  commands :
+    - ""
+  particles:
+    type: "FLAME"
+    count: 10
+    offsetX: 0.5
+    offsetY: 0.5
+    offsetZ: 0.5
+

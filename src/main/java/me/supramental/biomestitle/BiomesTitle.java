@@ -31,10 +31,11 @@ public class BiomesTitle extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new BiomeListener(this, isPlaceholderAPIAvailable), this);
         WandListener wandListener = new WandListener(this);
+        SetAreaCommand setAreaCommand = new SetAreaCommand(this, wandListener);
         Bukkit.getPluginManager().registerEvents(wandListener, this);
         getCommand("biometitlewand").setExecutor(new WandCommand());
-        getCommand("biometitlesetarea").setExecutor(new SetAreaCommand(this, wandListener));
-
+        getCommand("biometitlesetarea").setExecutor(setAreaCommand);
+        getCommand("biometitlesetarea").setTabCompleter(new SetAreaTabCompleter());
         getLogger().info("BiomesTitle has been enabled!");
 
         checkForUpdates();
