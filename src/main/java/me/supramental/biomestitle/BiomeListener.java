@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.util.*;
@@ -19,10 +20,12 @@ public class BiomeListener implements Listener {
     private final JavaPlugin plugin;
     private final boolean isPlaceholderAPIAvailable;
     private final Map<Player, String> playerAreas = new HashMap<>();
+    private final RGBTextEffect rgbTextEffect;
 
     public BiomeListener(JavaPlugin plugin, boolean isPlaceholderAPIAvailable) {
         this.plugin = plugin;
         this.isPlaceholderAPIAvailable = isPlaceholderAPIAvailable;
+        this.rgbTextEffect = new RGBTextEffect(plugin);
     }
 
     @EventHandler
@@ -54,19 +57,31 @@ public class BiomeListener implements Listener {
     private void displayBiomeMessage(Player player, String biomeName) {
         String path = player.getWorld().getName() + "." + biomeName;
         String message = plugin.getConfig().getString(path + ".message");
+        String subtitle = plugin.getConfig().getString(path + ".subtitle", "");
         String displayType = plugin.getConfig().getString(path + ".display");
 
         if (message != null && displayType != null) {
             if (isPlaceholderAPIAvailable) {
                 message = PlaceholderAPI.setPlaceholders(player, message);
+                subtitle = PlaceholderAPI.setPlaceholders(player, subtitle);
             }
-            String formattedMessage = ChatColor.translateAlternateColorCodes('&', message);
+            String formattedMessage = translateRGBColors(ChatColor.translateAlternateColorCodes('&', message));
+            String formattedSubtitle = translateRGBColors(ChatColor.translateAlternateColorCodes('&', subtitle));
+
             switch (displayType.toLowerCase()) {
                 case "title":
-                    player.sendTitle(formattedMessage, "", 10, 70, 20);
+                    if (formattedMessage.contains("<rgb>")) {
+                        String rgbMessage = formattedMessage.replace("<rgb>", "").replace("</rgb>", "");
+                        rgbTextEffect.startRGBEffect(player, rgbMessage);
+                    } else {
+                        player.sendTitle(formattedMessage, formattedSubtitle, 10, 70, 20);
+                    }
                     break;
                 case "actionbar":
                     player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(formattedMessage));
+                    break;
+                case "subtitle":
+                    player.sendTitle("", formattedMessage, 10, 70, 20);
                     break;
                 default:
                     plugin.getLogger().warning("Invalid display type for biome " + biomeName + ": " + displayType);
@@ -125,19 +140,31 @@ public class BiomeListener implements Listener {
                 if (!area.equals(currentArea)) {
                     playerAreas.put(player, area);
                     String message = areaConfig.getString(area + ".message");
+                    String subtitle = areaConfig.getString(area + ".subtitle", "");
                     String displayType = areaConfig.getString(area + ".displayType");
 
                     if (message != null && displayType != null) {
                         if (isPlaceholderAPIAvailable) {
                             message = PlaceholderAPI.setPlaceholders(player, message);
+                            subtitle = PlaceholderAPI.setPlaceholders(player, subtitle);
                         }
-                        String formattedMessage = ChatColor.translateAlternateColorCodes('&', message);
+                        String formattedMessage = translateRGBColors(ChatColor.translateAlternateColorCodes('&', message));
+                        String formattedSubtitle = translateRGBColors(ChatColor.translateAlternateColorCodes('&', subtitle));
+
                         switch (displayType.toLowerCase()) {
                             case "title":
-                                player.sendTitle(formattedMessage, "", 10, 70, 20);
+                                if (formattedMessage.contains("<rgb>")) {
+                                    String rgbMessage = formattedMessage.replace("<rgb>", "").replace("</rgb>", "");
+                                    rgbTextEffect.startRGBEffect(player, rgbMessage);
+                                } else {
+                                    player.sendTitle(formattedMessage, formattedSubtitle, 10, 70, 20);
+                                }
                                 break;
                             case "actionbar":
                                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(formattedMessage));
+                                break;
+                            case "subtitle":
+                                player.sendTitle("", formattedMessage, 10, 70, 20);
                                 break;
                             default:
                                 plugin.getLogger().warning("Invalid display type for area " + area + ": " + displayType);
@@ -196,37 +223,20 @@ public class BiomeListener implements Listener {
     }
 
     private void spawnTrailParticles(Player player) {
-        File file = new File(plugin.getDataFolder(), "Area.yml");
-        YamlConfiguration areaConfig = YamlConfiguration.loadConfiguration(file);
-        Location playerLocation = player.getLocation();
+        String path = player.getWorld().getName() + ".trail-particles";
+        String particleType = plugin.getConfig().getString(path + ".type");
+        int count = plugin.getConfig().getInt(path + ".count", 1);
+        double offsetX = plugin.getConfig().getDouble(path + ".offsetX", 0);
+        double offsetY = plugin.getConfig().getDouble(path + ".offsetY", 0);
+        double offsetZ = plugin.getConfig().getDouble(path + ".offsetZ", 0);
 
-        for (String area : areaConfig.getKeys(false)) {
-            Location pos1 = new Location(
-                    player.getWorld(),
-                    areaConfig.getDouble(area + ".pos1.x"),
-                    areaConfig.getDouble(area + ".pos1.y"),
-                    areaConfig.getDouble(area + ".pos1.z")
-            );
-            Location pos2 = new Location(
-                    player.getWorld(),
-                    areaConfig.getDouble(area + ".pos2.x"),
-                    areaConfig.getDouble(area + ".pos2.y"),
-                    areaConfig.getDouble(area + ".pos2.z")
-            );
-
-            if (isInArea(playerLocation, pos1, pos2)) {
-                String path = area + ".trail_particles";
-                String particleType = areaConfig.getString(path + ".type");
-                int count = areaConfig.getInt(path + ".count", 10);
-                double offsetX = areaConfig.getDouble(path + ".offsetX", 0.5);
-                double offsetY = areaConfig.getDouble(path + ".offsetY", 0.5);
-                double offsetZ = areaConfig.getDouble(path + ".offsetZ", 0.5);
-
-                if (particleType != null) {
-                    Particle particle = Particle.valueOf(particleType.toUpperCase());
-                    player.getWorld().spawnParticle(particle, player.getLocation(), count, offsetX, offsetY, offsetZ);
-                }
-            }
+        if (particleType != null) {
+            Particle particle = Particle.valueOf(particleType.toUpperCase());
+            player.getWorld().spawnParticle(particle, player.getLocation(), count, offsetX, offsetY, offsetZ);
         }
+    }
+
+    private String translateRGBColors(String message) {
+        return message;
     }
 }

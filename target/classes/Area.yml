@@ -1,0 +1,55 @@
+# Use wand to make the area instead of manually doing it here
+# What is the purpose of this yml? u can make a custom area with custom title
+# Use /biometitlewand to get the wand
+# How to use the wand? check the github
+# https://github.com/NotSabrina/BiomesTitle
+# if you understand WorldGuard/WolrdEdit wand you should understand
+# because its the same system
+ExampleArea1:
+  pos1:
+    world: example_world
+    x: 100
+    y: 64
+    z: 100
+  pos2:
+    world: example_world
+    x: 200
+    y: 70
+    z: 200
+  message: "&aEntering Example Area 1!"
+  displayType: "title"
+  sound :
+    - ""
+  commands:
+    - ""
+  particles:
+    type: "FLAME"
+    count: 10
+    offsetX: 0.5
+    offsetY: 0.5
+    offsetZ: 0.5
+
+ExampleArea2:
+  pos1:
+    world: example_world
+    x: -50
+    y: 64
+    z: -50
+  pos2:
+    world: example_world
+    x: 50
+    y: 70
+    z: 50
+  message: "&bEntering Example Area 2!"
+  displayType: "actionbar"
+  sound :
+    - ""
+  commands :
+    - ""
+  particles:
+    type: "FLAME"
+    count: 10
+    offsetX: 0.5
+    offsetY: 0.5
+    offsetZ: 0.5
+
