@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SetAreaTabCompleter implements TabCompleter {
 
-    private static final List<String> DISPLAY_TYPES = Arrays.asList("title", "actionbar", "subtitle");
+    private static final List<String> DISPLAY_TYPES = Arrays.asList("title", "actionbar", "subtitle", "bossbar");
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {

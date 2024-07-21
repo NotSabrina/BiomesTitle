@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bstats.MetricsBase;
+import org.bstats.bukkit.Metrics;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
