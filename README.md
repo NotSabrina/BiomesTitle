@@ -3,4 +3,6 @@ Download plugin : <br>
 Spigotmc : https://www.spigotmc.org/resources/biomestitle.117560/ <br>
 Modrinth : https://modrinth.com/plugin/biomestitle <br>
 How to use Area wand : https://github.com/NotSabrina/BiomesTitle/wiki/Area-Wand <br>
+How to add custom image and use it :
+https://github.com/NotSabrina/BiomesTitle/wiki/Custom-image<br>
 ![BSTATS](https://bstats.org/signatures/bukkit/BiomesTitle.svg)
