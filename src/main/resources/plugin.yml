@@ -1,17 +1,16 @@
 name: BiomesTitle
-version: 1.3-C
+version: 1.4
 main: me.supramental.biomestitle.BiomesTitle
-api-version: '1.20'
+api-version: '1.21'
 description: Add titles to biome
 author: supramental
 softdepend:
   - PlaceholderAPI
-
 commands:
-  biometitlewand:
-    description: Gives the player a BiomeTitle wand.
-    usage: /btwand
-  biometitlesetarea:
+  btwand:
+      description: Gives the player a BiomeTitle wand.
+      usage: /btwand
+  btsetarea:
     description: Sets a custom area with a message.
     usage: /btsetarea <name> <message> <title or actionbar>
 

@@ -42,9 +42,6 @@ biomes:
   # offsetY: 0.1
   #  offsetZ: 0.3
 
-  # you can use <rgb> to make the message rgb example:
-  # message : <rgb> this is rgb text</rgb>
-
 # Vanilla Biomes
 world:
   DESERT:

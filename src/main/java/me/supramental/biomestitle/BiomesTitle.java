@@ -4,8 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bstats.MetricsBase;
-import org.bstats.bukkit.Metrics;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,8 +12,6 @@ import java.net.URL;
 
 public class BiomesTitle extends JavaPlugin {
 
-    int serviceId = 22389;
-    Metrics metrics = new Metrics(this, serviceId);
     private boolean isPlaceholderAPIAvailable = false;
     private static final String VERSION_URL = "https://raw.githubusercontent.com/NotSabrina/BiomesTitle/main/version.txt";
 
@@ -35,9 +31,9 @@ public class BiomesTitle extends JavaPlugin {
         WandListener wandListener = new WandListener(this);
         SetAreaCommand setAreaCommand = new SetAreaCommand(this, wandListener);
         Bukkit.getPluginManager().registerEvents(wandListener, this);
-        getCommand("biometitlewand").setExecutor(new WandCommand());
-        getCommand("biometitlesetarea").setExecutor(setAreaCommand);
-        getCommand("biometitlesetarea").setTabCompleter(new SetAreaTabCompleter());
+        getCommand("btwand").setExecutor(new WandCommand());
+        getCommand("btsetarea").setExecutor(setAreaCommand);
+        getCommand("btsetarea").setTabCompleter(new SetAreaTabCompleter());
         getLogger().info("BiomesTitle has been enabled!");
 
         checkForUpdates();

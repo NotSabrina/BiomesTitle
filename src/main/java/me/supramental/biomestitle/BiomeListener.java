@@ -46,7 +46,7 @@ public class BiomeListener implements Listener {
         }
 
         if (!from.getBlock().getBiome().equals(to.getBlock().getBiome())) {
-            String newBiome = to.getBlock().getBiome().name();
+            String newBiome = to.getBlock().getBiome().toString();
             displayBiomeMessage(player, newBiome);
             spawnBiomeParticles(player, newBiome);
             executeBiomeCommands(player, newBiome);

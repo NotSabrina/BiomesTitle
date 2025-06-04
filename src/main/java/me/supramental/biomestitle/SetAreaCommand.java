@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
+
 import java.io.File;
 import java.io.IOException;
 
@@ -35,7 +36,7 @@ public class SetAreaCommand implements CommandExecutor {
         }
 
         if (args.length < 3) {
-            player.sendMessage("Usage: /biometitlesetarea <name> <message> <displayType>");
+            player.sendMessage("Usage: /btsetarea <name> <message> <displayType>");
             return true;
         }
 
